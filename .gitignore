@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# API keys
+.env
+.env.*
+
+# IDE
+.vscode/
+.idea/
+
+# Build files
+build/
+dist/
+*.egg-info/
+
+# Logs
+*.log
+
+# Windows
+Thumbs.db
+
+# Personal data
+data/user_profile.json
+
+# Study materials
+data/study_notes/

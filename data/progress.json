@@ -1,0 +1,995 @@
+[
+    {
+        "date": "2026-07-27 22:42:55.118135",
+        "total_questions": 5,
+        "score": 2,
+        "percentage": 40.0,
+        "questions": [
+            {
+                "question": "According to the notes, what is the 'central idea' of calculus when a function's rate of change is not constant?",
+                "topic": "Unknown",
+                "correct_answer": "Continuous change.",
+                "user_answer": "zdcnalsk;dadv",
+                "correct": false
+            },
+            {
+                "question": "Which of the following describes the relationship between Function (1) and Function (2) in differential calculus?",
+                "topic": "Unknown",
+                "correct_answer": "Function (2) is the derivative (rate of change) of Function (1).",
+                "user_answer": "Function (2) is the derivative (rate of change) of Function (1).",
+                "correct": true
+            },
+            {
+                "question": "If a car travels at a constant speed, how is the distance traveled calculated?",
+                "topic": "Unknown",
+                "correct_answer": "Distance (f) is calculated by multiplying the constant speed (s) by the travel time (t), expressed as f = s * t.",
+                "user_answer": "asuidvbkasv",
+                "correct": false
+            },
+            {
+                "question": "Which of the following functions has the property that its slope is equal to the function itself (dy/dx = y)?",
+                "topic": "Unknown",
+                "correct_answer": "y = e^x",
+                "user_answer": "y = 2x",
+                "correct": false
+            },
+            {
+                "question": "When calculating the average slope between two points (x1, y1) and (x2, y2) on a graph, what is the formula for the ratio of change?",
+                "topic": "Unknown",
+                "correct_answer": "Slope = (y2 - y1) / (x2 - x1)",
+                "user_answer": "Slope = (y2 - y1) / (x2 - x1)",
+                "correct": true
+            }
+        ]
+    },
+    {
+        "date": "2026-07-27 22:59:55.266641",
+        "total_questions": 5,
+        "score": 2,
+        "percentage": 40.0,
+        "questions": [
+            {
+                "question": "In the context of the relationship between two functions, if Function (1) represents the distance a car travels, what does Function (2) represent?",
+                "topic": "Fundamentals of Calculus",
+                "correct_answer": "The speed of the car",
+                "user_answer": "The speed of the car",
+                "correct": true
+            },
+            {
+                "question": "What is the primary difference between the roles of differential calculus and integral calculus as described in the notes?",
+                "topic": "Calculus Concepts",
+                "correct_answer": "Differential calculus finds Function (2) from Function (1) (finding the rate of change or slope), while integral calculus goes the other way to find Function (1) from Function (2) (adding up small pieces/totaling).",
+                "user_answer": "isdnansdao",
+                "correct": false
+            },
+            {
+                "question": "Which of the following describes the unique property of the function y = e^x mentioned in the notes?",
+                "topic": "Important Functions",
+                "correct_answer": "It equals its own slope (the function equals its derivative)",
+                "user_answer": "It equals its own slope (the function equals its derivative)",
+                "correct": true
+            },
+            {
+                "question": "Using the pattern described for the function y = x^2, if you move from x = 1 to x = 2, calculate the average slope (dy/dx).",
+                "topic": "Slope and Rates",
+                "correct_answer": "3. (Calculation: y at x=2 is 4, y at x=1 is 1. Change in y = 3, change in x = 1. Slope = 3/1 = 3.)",
+                "user_answer": "asbfbasoldaf",
+                "correct": false
+            },
+            {
+                "question": "Why does the author state that we need a 'new idea' beyond simple multiplication and division when analyzing distance and speed?",
+                "topic": "Calculus Concepts",
+                "correct_answer": "Because multiplication only works when the speed is constant",
+                "user_answer": "Because graphs are only linear in algebra",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "date": "2026-07-27 23:28:52.843453",
+        "total_questions": 5,
+        "score": 2,
+        "percentage": 40.0,
+        "questions": [
+            {
+                "question": "According to the provided notes, what are the two main functions that calculus relates?",
+                "topic": "Fundamentals of Calculus",
+                "correct_answer": "Function (1) and its rate of change (Function 2)",
+                "user_answer": "Function (1) and its rate of change (Function 2)",
+                "explanation": "The notes explicitly state that calculus is about pairs of functions, where Function (2) represents the growth rate, speed, or slope of Function (1).",
+                "correct": true
+            },
+            {
+                "question": "If the graph of a function is a straight line represented by y = 2x, what is its growth rate (slope)?",
+                "topic": "Derivatives and Slope",
+                "correct_answer": "2",
+                "user_answer": "asifhna",
+                "explanation": "For a linear function y = Cx, the growth rate or slope is the constant C. In this case, the ratio of change in y to change in x is always 2.",
+                "correct": false
+            },
+            {
+                "question": "What is the primary difference between the derivative and the integral as described in the text?",
+                "topic": "The Big Picture",
+                "correct_answer": "The derivative (speedometer) finds the rate of change; the integral (odometer) adds up changes to find the total.",
+                "user_answer": "The derivative finds the average speed; the integral finds the instantaneous speed.",
+                "explanation": "The notes use the car analogy to explain that the derivative tells you how the distance is changing at any moment (speed), while the integral adds those changes up to recover the total distance traveled.",
+                "correct": false
+            },
+            {
+                "question": "Why is the function y = e^x considered a 'great creation' of calculus in the text?",
+                "topic": "Functions and Growth Rates",
+                "correct_answer": "It has the property that its slope (derivative) equals the function itself.",
+                "user_answer": "adfa",
+                "explanation": "The text highlights y = e^x as a special function where dy/dx = y, meaning the function and its growth rate are identical.",
+                "correct": false
+            },
+            {
+                "question": "What fundamental problem does calculus solve when dealing with a function that is not constant?",
+                "topic": "Calculus Concepts",
+                "correct_answer": "It determines the slope at a single point (instantaneous change) rather than just an average.",
+                "user_answer": "It determines the slope at a single point (instantaneous change) rather than just an average.",
+                "explanation": "When speed or slope is changing, simple division (distance/time) only gives an average. Calculus uses limits to find the speed or slope at one specific instant.",
+                "correct": true
+            }
+        ]
+    },
+    {
+        "date": "2026-07-27 23:35:02.905766",
+        "total_questions": 5,
+        "score": 1,
+        "percentage": 20.0,
+        "questions": [
+            {
+                "question": "In the context of calculus, what is the 'Big Picture' relationship between Function (1) and Function (2)?",
+                "topic": "Fundamentals of Calculus",
+                "correct_answer": "Function (2) is the rate of change (derivative) of Function (1)",
+                "user_answer": "Function (1) is the sum of Function (2)",
+                "explanation": "As stated in the notes, calculus is about pairs of functions where Function (2) represents the growth rate, speed, or slope of Function (1).",
+                "correct": false
+            },
+            {
+                "question": "If a car travels 100 miles in 2 hours, what is its average speed (the average slope of the distance function)?",
+                "topic": "Average Slope",
+                "correct_answer": "50 miles per hour",
+                "user_answer": "",
+                "explanation": "The notes define average slope (or average speed) as the change in distance (y2 - y1) divided by the change in time (x2 - x1). Here, 100 / 2 = 50.",
+                "correct": false
+            },
+            {
+                "question": "Which of the following describes the growth rate (derivative) of the function y = x^2?",
+                "topic": "Functions and Derivatives",
+                "correct_answer": "2x",
+                "user_answer": "2x",
+                "explanation": "The notes explicitly provide the growth rate for the squaring function y = x^2 as dy/dx = 2x.",
+                "correct": true
+            },
+            {
+                "question": "What is the unique property of the exponential function y = e^x mentioned in the notes?",
+                "topic": "The Exponential Function",
+                "correct_answer": "The function equals its own slope (derivative).",
+                "user_answer": "",
+                "explanation": "The notes highlight that y = e^x is the 'magic function' where the function equals its own growth rate, satisfying the condition dy/dx = y.",
+                "correct": false
+            },
+            {
+                "question": "Why is calculus necessary compared to simple algebra when analyzing motion?",
+                "topic": "Linear vs. Changing Slope",
+                "correct_answer": "Algebra can only calculate speeds when they are constant, whereas calculus handles continuously changing speeds.",
+                "user_answer": "Calculus is used only for mountains, while algebra is for cars.",
+                "explanation": "The notes state that when speed is constant, algebra works fine (distance = speed * time), but when speed is continually changing, a new idea\u2014the heart of calculus\u2014is needed.",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "date": "2026-07-27 23:38:10.825209",
+        "total_questions": 5,
+        "score": 0,
+        "percentage": 0.0,
+        "questions": [
+            {
+                "question": "According to the notes, what are the two components of a calculus pair?",
+                "topic": "Calculus Fundamentals",
+                "correct_answer": "Function (1) and Function (2)",
+                "user_answer": "Input and Output",
+                "explanation": "The notes explicitly define calculus as being about pairs of functions, labeled as Function (1) and Function (2), where Function (2) represents the rate of change or derivative of Function (1).",
+                "correct": false
+            },
+            {
+                "question": "If you are given the distance traveled over time and you want to find the speed, which branch of calculus are you using?",
+                "topic": "Differential vs. Integral Calculus",
+                "correct_answer": "Differential Calculus",
+                "user_answer": "",
+                "explanation": "Differential calculus finds the growth rate (Function 2) from the function itself (Function 1). Since speed is the rate of change of distance, finding speed from distance is an application of differential calculus.",
+                "correct": false
+            },
+            {
+                "question": "Which of the following functions has a constant growth rate?",
+                "topic": "Growth Rates",
+                "correct_answer": "y = 2x",
+                "user_answer": "y = 2^x",
+                "explanation": "A linear function like y = 2x has a constant slope (growth rate) of 2, whereas y = x^2 and y = 2^x have growth rates that change as x changes.",
+                "correct": false
+            },
+            {
+                "question": "What happens to the calculation of slope when you attempt to find the speed at a single, exact instant of time?",
+                "topic": "The Derivative",
+                "correct_answer": "You get 0/0, which calculus interprets to give a useful meaning.",
+                "user_answer": "",
+                "explanation": "At a single instant, both the distance across (delta x) and the distance up (delta y) are zero. The notes explain that the core of calculus is assigning a useful meaning to this 0/0 ratio.",
+                "correct": false
+            },
+            {
+                "question": "If y = 5x^2, what is the growth rate (derivative) based on the provided rules?",
+                "topic": "Linear Combinations",
+                "correct_answer": "10x",
+                "user_answer": "2x",
+                "explanation": "The notes state that the growth rate of y = x^2 is 2x, and the 'Constant factor' rule says that for a function C * y(x), the growth rate is C times the growth rate of y(x). Therefore, 5 * 2x = 10x.",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "date": "2026-07-30 10:46:29.774199",
+        "total_questions": 10,
+        "score": 0,
+        "percentage": 0.0,
+        "questions": [
+            {
+                "question": "According to the study notes, how many regular solids (regular polyhedra) were discovered by the ancient Greek mathematicians?",
+                "topic": "Regular Solids",
+                "correct_answer": "5",
+                "user_answer": "4",
+                "explanation": "The text explicitly states: 'There are only five regular solids discovered by the ancient Greek mathematicians.'",
+                "correct": false
+            },
+            {
+                "question": "Using the Euler formula (F + V = E + 2), if a regular solid has 12 faces and 30 edges, how many vertices does it have?",
+                "topic": "Regular Solids",
+                "correct_answer": "20",
+                "user_answer": "",
+                "explanation": "Using the formula F + V = E + 2, we substitute 12 for F and 30 for E: 12 + V = 30 + 2. This simplifies to 12 + V = 32. Subtracting 12 from both sides gives V = 20.",
+                "correct": false
+            },
+            {
+                "question": "Which of the following defines the intersection of two sets A and B?",
+                "topic": "Set Theory",
+                "correct_answer": "A \u2229 B = { x | x \u2208 both A and B }",
+                "user_answer": "A - B = { x | x \u2208 A and x \u2209 B }",
+                "explanation": "The text defines the intersection of two sets A and B as the set of elements x that belong to both set A and set B.",
+                "correct": false
+            },
+            {
+                "question": "In a polar coordinate system, what are the rectangular coordinates (x, y) if the polar coordinates are (r, \u03b8)?",
+                "topic": "Coordinate Systems",
+                "correct_answer": "x = r cos \u03b8, y = r sin \u03b8",
+                "user_answer": "",
+                "explanation": "The text provides the standard conversion equations: x = r cos \u03b8 and y = r sin \u03b8.",
+                "correct": false
+            },
+            {
+                "question": "In the functional notation y = f(x), what is the term used to describe the set of values that x can take?",
+                "topic": "Functions",
+                "correct_answer": "Domain",
+                "user_answer": "Ordinate",
+                "explanation": "The text states: 'The set of values x \u2208 X is called the domain of definition of the function f(x).'",
+                "correct": false
+            },
+            {
+                "question": "What is the formula for the distance d between two points (x1, y1) and (x2, y2) in a rectangular coordinate system?",
+                "topic": "Distance Formula",
+                "correct_answer": "d = sqrt((x2 - x1)^2 + (y2 - y1)^2)",
+                "user_answer": "d = sqrt(x2^2 + y2^2)",
+                "explanation": "This is the standard distance formula derived from the Pythagorean theorem as stated in the notes.",
+                "correct": false
+            },
+            {
+                "question": "If A \u2282 B and A \u2260 B, what is the specific term used to describe set A?",
+                "topic": "Set Theory",
+                "correct_answer": "A proper subset",
+                "user_answer": "",
+                "explanation": "The notes define a proper subset as a set A such that A is contained in B (A \u2282 B) and A is not equal to B.",
+                "correct": false
+            },
+            {
+                "question": "When is a function considered 'single-valued'?",
+                "topic": "Functions",
+                "correct_answer": "When no two different ordered pairs (x, y) have the same first element",
+                "user_answer": "When it is a linear function",
+                "explanation": "The text defines a function as single-valued if 'no two different ordered pairs (x, y) have the same first element.'",
+                "correct": false
+            },
+            {
+                "question": "Why is the polar representation of a point (r, \u03b8) considered non-unique?",
+                "topic": "Coordinate Systems",
+                "correct_answer": "Because the angle \u03b8 can be increased or decreased by any multiple of 2\u03c0 to arrive at the same point.",
+                "user_answer": "",
+                "explanation": "The notes explicitly state that polar representation is not unique because (r, \u03b8) = (r, \u03b8 \u00b1 2n\u03c0) for any integer n.",
+                "correct": false
+            },
+            {
+                "question": "Which set contains all terminating and nonterminating decimals?",
+                "topic": "Set Theory",
+                "correct_answer": "The set of real numbers (R)",
+                "user_answer": "",
+                "explanation": "The definition provided for R is 'The set of real numbers R = {All decimal numbers}' where decimal numbers represent all terminating and nonterminating decimals.",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "date": "2026-07-30 10:57:35.101591",
+        "total_questions": 5,
+        "score": 0,
+        "percentage": 0.0,
+        "questions": [
+            {
+                "question": "Which of the following is NOT one of the five regular solids identified by ancient Greek mathematicians?",
+                "topic": "Regular Solids",
+                "difficulty": "easy",
+                "type": "multiple_choice",
+                "correct_answer": "Pentagon",
+                "user_answer": "Icosahedron",
+                "explanation": "According to the notes, the five regular solids are the tetrahedron, cube (hexahedron), octahedron, dodecahedron, and icosahedron. A pentagon is a 2D polygon, not a 3D regular solid.",
+                "feedback": "Incorrect. Review this concept and compare your answer with the correct explanation.",
+                "correct": false
+            },
+            {
+                "question": "Using Euler's formula for regular polyhedra (F + V = E + 2), calculate the number of vertices (V) for a cube, given that it has 6 faces (F) and 12 edges (E).",
+                "topic": "Euler's Formula",
+                "difficulty": "medium",
+                "type": "short_answer",
+                "correct_answer": "8",
+                "user_answer": "i dont know",
+                "explanation": "Using the formula F + V = E + 2, we substitute the known values: 6 + V = 12 + 2. This simplifies to 6 + V = 14. Subtracting 6 from both sides gives V = 8.",
+                "feedback": "Phronesis could not evaluate this answer. Please compare it with the correct answer.",
+                "correct": false
+            },
+            {
+                "question": "In set theory, if A \u2229 B = \u2205, what can be concluded about sets A and B?",
+                "topic": "Set Theory",
+                "difficulty": "medium",
+                "type": "multiple_choice",
+                "correct_answer": "They are disjoint",
+                "user_answer": "They are equal",
+                "explanation": "The notes explicitly state that if the intersection of two sets A and B (A \u2229 B) is the empty set, the sets are said to be disjoint.",
+                "feedback": "Incorrect. Review this concept and compare your answer with the correct explanation.",
+                "correct": false
+            },
+            {
+                "question": "Given the polar coordinate point (r, \u03b8), what are the corresponding rectangular coordinates (x, y)?",
+                "topic": "Coordinate Systems",
+                "difficulty": "hard",
+                "type": "short_answer",
+                "correct_answer": "x = r cos \u03b8, y = r sin \u03b8",
+                "user_answer": "i still dont know",
+                "explanation": "The relationship between polar and rectangular coordinates is defined by the equations x = r cos \u03b8 and y = r sin \u03b8.",
+                "feedback": "Phronesis could not evaluate this answer. Please compare it with the correct answer.",
+                "correct": false
+            },
+            {
+                "question": "What is the primary condition required for a relation to be considered a 'single-valued' function?",
+                "topic": "Functions",
+                "difficulty": "medium",
+                "type": "multiple_choice",
+                "correct_answer": "For each x, there is exactly one y",
+                "user_answer": "The set must be bounded",
+                "explanation": "The notes define a single-valued function as a rule where for each x in the domain X, there corresponds exactly one real number y in Y.",
+                "feedback": "Incorrect. Review this concept and compare your answer with the correct explanation.",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "date": "2026-07-30 11:10:54.934098",
+        "total_questions": 5,
+        "score": 1,
+        "percentage": 20.0,
+        "questions": [
+            {
+                "question": "Which of the following notations represents a closed interval in real numbers?",
+                "topic": "Sets and Intervals",
+                "correct_answer": "[a, b]",
+                "user_answer": "[a, b)",
+                "type": "multiple_choice",
+                "correct": false,
+                "evaluation": {
+                    "result": "incorrect",
+                    "feedback": ""
+                }
+            },
+            {
+                "question": "According to the study notes, what is the value of the 'Number of faces + Number of vertices - Number of edges' for a regular solid?",
+                "topic": "Euler Formula",
+                "correct_answer": "2",
+                "user_answer": "2",
+                "type": "multiple_choice",
+                "correct": true,
+                "evaluation": {
+                    "result": "correct",
+                    "feedback": ""
+                }
+            },
+            {
+                "question": "Define the 'domain' of a function y = f(x) as described in the text.",
+                "topic": "Functions",
+                "correct_answer": "The domain is the set of values x \u2208 X for which the function f(x) is real-valued.",
+                "user_answer": "i dont know",
+                "type": "short_answer",
+                "correct": false,
+                "evaluation": {
+                    "result": "incorrect",
+                    "feedback": "The student stated that they do not know the answer, which does not provide any mathematical definition of the domain of a function."
+                }
+            },
+            {
+                "question": "If a point in polar coordinates is given as (r, \u03b8), what are the corresponding x and y values in a rectangular coordinate system?",
+                "topic": "Coordinate Systems",
+                "correct_answer": "x = r cos \u03b8, y = r sin \u03b8",
+                "user_answer": "x = r/cos \u03b8, y = r/sin \u03b8",
+                "type": "multiple_choice",
+                "correct": false,
+                "evaluation": {
+                    "result": "incorrect",
+                    "feedback": ""
+                }
+            },
+            {
+                "question": "If A \u2282 B and A \u2260 B, what is the specific term used to describe set A in relation to set B?",
+                "topic": "Set Theory",
+                "correct_answer": "Proper subset",
+                "user_answer": "i still dont know",
+                "type": "short_answer",
+                "correct": false,
+                "evaluation": {
+                    "result": "incorrect",
+                    "feedback": "The student indicated they do not know the answer. The correct term for a set A that is a subset of B but not equal to B is a 'proper subset'."
+                }
+            }
+        ]
+    },
+    {
+        "date": "2026-07-30 11:45:29.505382",
+        "total_questions": 5,
+        "score": 0,
+        "percentage": 0.0,
+        "questions": [
+            {
+                "question": "What is the 'third-variable problem' in the context of statistical interpretation?",
+                "topic": "What Are Statistics",
+                "correct_answer": "A situation where a third variable causes both primary variables, creating a false illusion of a direct causal relationship.",
+                "user_answer": "The tendency to ignore three or more variables when calculating a mean.",
+                "type": "multiple_choice",
+                "correct": false,
+                "evaluation": {
+                    "result": "incorrect",
+                    "feedback": ""
+                }
+            },
+            {
+                "question": "True or False: Statistics only refer to numerical facts and figures, and the interpretation of those figures is not considered part of the field.",
+                "topic": "What Are Statistics",
+                "correct_answer": "False",
+                "user_answer": "Only true for inferential statistics",
+                "type": "multiple_choice",
+                "correct": false,
+                "evaluation": {
+                    "result": "incorrect",
+                    "feedback": ""
+                }
+            },
+            {
+                "question": "Describe the 'history effect' mentioned in the text as a potential flaw in statistical reasoning.",
+                "topic": "Importance of Statistics",
+                "correct_answer": "The history effect occurs when changes in data over time are incorrectly attributed to a specific intervention or variable, rather than being recognized as a result of external factors or natural trends associated with the passage of time.",
+                "user_answer": "i dont know",
+                "type": "short_answer",
+                "correct": false,
+                "evaluation": {
+                    "result": "incorrect",
+                    "feedback": "The student stated they do not know the answer, which does not address the question regarding the 'history effect'."
+                }
+            },
+            {
+                "question": "Which of the following best defines 'descriptive statistics'?",
+                "topic": "Descriptive Statistics",
+                "correct_answer": "Numbers used to summarize and describe a set of data.",
+                "user_answer": "",
+                "type": "multiple_choice",
+                "correct": false,
+                "evaluation": {
+                    "result": "incorrect",
+                    "feedback": ""
+                }
+            },
+            {
+                "question": "Why does the author suggest that learning statistics is a vital step toward 'taking control of your life'?",
+                "topic": "Importance of Statistics",
+                "correct_answer": "Learning statistics helps individuals evaluate claims, distinguish between good and faulty reasoning, and defend themselves against manipulation by misleading data.",
+                "user_answer": "bla",
+                "type": "short_answer",
+                "correct": false,
+                "evaluation": {
+                    "result": "incorrect",
+                    "feedback": "The student's response is irrelevant and does not address the question regarding the importance of learning statistics."
+                }
+            }
+        ]
+    },
+    {
+        "date": "2026-07-30 12:05:47.876649",
+        "total_questions": 5,
+        "score": 3,
+        "percentage": 60.0,
+        "questions": [
+            {
+                "question": "Which of the following describes the definition of 'statistics' in the broadest sense?",
+                "topic": "What Are Statistics",
+                "correct_answer": "A set of techniques for analyzing, interpreting, displaying, and making decisions based on data.",
+                "user_answer": "A collection of only raw numerical facts.",
+                "type": "multiple_choice",
+                "correct": false,
+                "evaluation": {
+                    "result": "incorrect",
+                    "feedback": ""
+                }
+            },
+            {
+                "question": "In the example regarding 'churches and crime,' what is the term used to describe a third variable that influences two other variables, creating a false perception of a causal relationship?",
+                "topic": "What Are Statistics",
+                "correct_answer": "third-variable problem",
+                "user_answer": "confounding factor",
+                "type": "short_answer",
+                "correct": true,
+                "evaluation": {
+                    "result": "correct",
+                    "feedback": "The term 'confounding factor' is synonymous with the 'third-variable problem' in the context of research methodology; both describe a variable that obscures the true relationship between two other variables."
+                }
+            },
+            {
+                "question": "Why is it important for an individual to study statistics according to the text?",
+                "topic": "Importance of Statistics",
+                "correct_answer": "To evaluate data and claims critically to avoid manipulation.",
+                "user_answer": "To evaluate data and claims critically to avoid manipulation.",
+                "type": "multiple_choice",
+                "correct": true,
+                "evaluation": {
+                    "result": "correct",
+                    "feedback": ""
+                }
+            },
+            {
+                "question": "What is the primary function of descriptive statistics?",
+                "topic": "Descriptive Statistics",
+                "correct_answer": "To summarize and describe data.",
+                "user_answer": "To summarize and describe data.",
+                "type": "multiple_choice",
+                "correct": true,
+                "evaluation": {
+                    "result": "correct",
+                    "feedback": ""
+                }
+            },
+            {
+                "question": "Explain the 'history effect' using the example of the ice cream advertisement provided in the text.",
+                "topic": "What Are Statistics",
+                "correct_answer": "The history effect occurs when an outcome is attributed to a specific variable, such as an advertisement, while ignoring the influence of the passage of time or seasonal factors.",
+                "user_answer": "i dont know",
+                "type": "short_answer",
+                "correct": false,
+                "evaluation": {
+                    "result": "incorrect",
+                    "feedback": "The student indicated they did not know the answer, which fails to address the prompt."
+                }
+            }
+        ]
+    },
+    {
+        "date": "2026-07-30 12:19:12.762488",
+        "total_questions": 5,
+        "score": 1,
+        "percentage": 20.0,
+        "questions": [
+            {
+                "question": "Which of the following describes the 'third-variable problem' as mentioned in the text?",
+                "topic": "What Are Statistics",
+                "correct_answer": "A situation where a third variable causes both primary variables, creating an illusion of a causal relationship.",
+                "user_answer": "The tendency to only report three variables in a statistical study.",
+                "type": "multiple_choice",
+                "correct": false,
+                "evaluation": {
+                    "result": "incorrect",
+                    "feedback": ""
+                }
+            },
+            {
+                "question": "Why is it important for an individual to study statistics according to the text?",
+                "topic": "Importance of Statistics",
+                "correct_answer": "To properly evaluate data and claims in everyday life, avoid manipulation, and become an intelligent consumer of statistical information.",
+                "user_answer": "bla",
+                "type": "short_answer",
+                "correct": false,
+                "evaluation": {
+                    "result": "incorrect",
+                    "feedback": "The provided response is irrelevant and does not address the question regarding the importance of studying statistics."
+                }
+            },
+            {
+                "question": "What is meant by a 'history effect' in the context of interpreting statistics?",
+                "topic": "What Are Statistics",
+                "correct_answer": "A scenario where an outcome is incorrectly attributed to one variable, while a temporal or environmental factor is actually responsible.",
+                "user_answer": "The tendency for statistical results to change significantly over a long period of time.",
+                "type": "multiple_choice",
+                "correct": false,
+                "evaluation": {
+                    "result": "incorrect",
+                    "feedback": ""
+                }
+            },
+            {
+                "question": "Which of the following best defines 'descriptive statistics'?",
+                "topic": "Descriptive Statistics",
+                "correct_answer": "Numbers used to summarize and describe data.",
+                "user_answer": "Numbers used to summarize and describe data.",
+                "type": "multiple_choice",
+                "correct": true,
+                "evaluation": {
+                    "result": "correct",
+                    "feedback": ""
+                }
+            },
+            {
+                "question": "What is the primary piece of advice given to become an 'intelligent consumer of statistics'?",
+                "topic": "Importance of Statistics",
+                "correct_answer": "To question the statistics you encounter, specifically looking at the numbers, their sources, and the procedures used to generate them.",
+                "user_answer": "bla",
+                "type": "short_answer",
+                "correct": false,
+                "evaluation": {
+                    "result": "incorrect",
+                    "feedback": "The response provided does not address the question or demonstrate any knowledge of the subject matter."
+                }
+            }
+        ]
+    },
+    {
+        "date": "2026-07-30 12:19:50.416285",
+        "total_questions": 5,
+        "score": 1,
+        "percentage": 20.0,
+        "questions": [
+            {
+                "question": "Which of the following describes the 'history effect' in statistical interpretation?",
+                "topic": "What Are Statistics",
+                "correct_answer": "A phenomenon where outcomes are incorrectly attributed to a specific variable when the passage of time or seasonal trends is actually responsible.",
+                "user_answer": "A phenomenon where outcomes are incorrectly attributed to a specific variable when the passage of time or seasonal trends is actually responsible.",
+                "type": "multiple_choice",
+                "correct": true,
+                "evaluation": {
+                    "result": "correct",
+                    "feedback": ""
+                }
+            },
+            {
+                "question": "In the broadest sense, how are 'statistics' defined?",
+                "topic": "What Are Statistics",
+                "correct_answer": "Statistics refers to a range of techniques and procedures for analyzing, interpreting, displaying, and making decisions based on data.",
+                "user_answer": "bal",
+                "type": "short_answer",
+                "correct": false,
+                "evaluation": {
+                    "result": "incorrect",
+                    "feedback": "The student's response is irrelevant and does not address the definition of statistics."
+                }
+            },
+            {
+                "question": "What is the 'third-variable problem' in statistics?",
+                "topic": "Importance of Statistics",
+                "correct_answer": "The error of assuming a causal relationship between two variables when a third, unmeasured variable is actually influencing both.",
+                "user_answer": "A limitation where statistics can only be used if there are three or more sources of data.",
+                "type": "multiple_choice",
+                "correct": false,
+                "evaluation": {
+                    "result": "incorrect",
+                    "feedback": ""
+                }
+            },
+            {
+                "question": "What is the primary function of descriptive statistics?",
+                "topic": "Descriptive Statistics",
+                "correct_answer": "To summarize and describe a set of data.",
+                "user_answer": "To predict future trends using historical data.",
+                "type": "multiple_choice",
+                "correct": false,
+                "evaluation": {
+                    "result": "incorrect",
+                    "feedback": ""
+                }
+            },
+            {
+                "question": "Why is it important to question the source and procedures used to generate statistics?",
+                "topic": "Importance of Statistics",
+                "correct_answer": "Because statistics can be used to manipulate or mislead, questioning the source and methods helps the reader distinguish between credible, well-supported arguments and fraudulent or deceptive claims.",
+                "user_answer": "bla",
+                "type": "short_answer",
+                "correct": false,
+                "evaluation": {
+                    "result": "incorrect",
+                    "feedback": "The student's response is irrelevant and fails to address the question regarding the importance of questioning the source and procedures of statistics."
+                }
+            }
+        ]
+    },
+    {
+        "date": "2026-07-30 12:28:06.877736",
+        "total_questions": 5,
+        "score": 2,
+        "percentage": 40.0,
+        "questions": [
+            {
+                "question": "Which of the following describes a 'history effect' in statistical interpretation?",
+                "topic": "What Are Statistics",
+                "correct_answer": "When the passage of time or seasonal changes are responsible for an outcome rather than the experimental variable.",
+                "user_answer": "When the passage of time or seasonal changes are responsible for an outcome rather than the experimental variable.",
+                "type": "multiple_choice",
+                "correct": true,
+                "evaluation": {
+                    "result": "correct",
+                    "feedback": ""
+                }
+            },
+            {
+                "question": "What is the 'third-variable problem' in statistics?",
+                "topic": "What Are Statistics",
+                "correct_answer": "The third-variable problem occurs when a third, unmeasured variable causes changes in both of the primary variables being studied, leading observers to erroneously conclude there is a direct causal relationship between the two.",
+                "user_answer": "iuahsndklvw",
+                "type": "short_answer",
+                "correct": false,
+                "evaluation": {
+                    "result": "incorrect",
+                    "feedback": "The student's response is nonsensical and does not address the question regarding the 'third-variable problem' in statistics."
+                }
+            },
+            {
+                "question": "According to the text, why is it important for individuals to study statistics?",
+                "topic": "Importance of Statistics",
+                "correct_answer": "To distinguish good from faulty reasoning and avoid being manipulated by misleading claims.",
+                "user_answer": "To distinguish good from faulty reasoning and avoid being manipulated by misleading claims.",
+                "type": "multiple_choice",
+                "correct": true,
+                "evaluation": {
+                    "result": "correct",
+                    "feedback": ""
+                }
+            },
+            {
+                "question": "How are descriptive statistics defined?",
+                "topic": "Descriptive Statistics",
+                "correct_answer": "They are numbers used to summarize and describe data.",
+                "user_answer": "They are methods for proving causation between two variables.",
+                "type": "multiple_choice",
+                "correct": false,
+                "evaluation": {
+                    "result": "incorrect",
+                    "feedback": ""
+                }
+            },
+            {
+                "question": "Why is the statistic '75% more interracial marriages this year than 25 years ago' potentially misleading?",
+                "topic": "What Are Statistics",
+                "correct_answer": "The statistic is misleading because it lacks the context of the base rate (the original rate of occurrence), making it impossible to determine if the increase signifies genuine societal acceptance or a change from a very small initial number.",
+                "user_answer": "sdvsv",
+                "type": "short_answer",
+                "correct": false,
+                "evaluation": {
+                    "result": "incorrect",
+                    "feedback": "The student's response is nonsensical and does not address the question regarding statistical interpretation."
+                }
+            }
+        ]
+    },
+    {
+        "date": "2026-07-30 13:08:01.792115",
+        "total_questions": 5,
+        "score": 0,
+        "percentage": 0.0,
+        "questions": [
+            {
+                "question": "What is the definition of 'datification' as described in the study notes?",
+                "topic": "Datification",
+                "correct_answer": "The process of rendering into data aspects of the world that have never been quantified before.",
+                "user_answer": "The transition from Python 2.X to Python 3.X programming environments.",
+                "type": "multiple_choice",
+                "correct": false,
+                "evaluation": {
+                    "result": "incorrect",
+                    "feedback": ""
+                }
+            },
+            {
+                "question": "Which Python library is identified as the cornerstone for scientific computing and provides support for multidimensional arrays?",
+                "topic": "Python Libraries",
+                "correct_answer": "NumPy",
+                "user_answer": "Scikit-learn",
+                "type": "multiple_choice",
+                "correct": false,
+                "evaluation": {
+                    "result": "incorrect",
+                    "feedback": ""
+                }
+            },
+            {
+                "question": "Explain the relationship between 'DataFrame' and 'Series' in the Pandas library.",
+                "topic": "Pandas",
+                "correct_answer": "In Pandas, a DataFrame is a tabular data structure consisting of rows and columns. The columns of a DataFrame are called Series, which are special data objects consisting of a list of values where each value has an index.",
+                "user_answer": "bla",
+                "type": "short_answer",
+                "correct": false,
+                "evaluation": {
+                    "result": "incorrect",
+                    "feedback": "The student's answer is irrelevant and does not address the relationship between a DataFrame and a Series in the Pandas library."
+                }
+            },
+            {
+                "question": "The notes outline four strategies for exploring the world using data. Which strategy is described as using active methods where data represents the response of the world to our actions?",
+                "topic": "Data Science Strategies",
+                "correct_answer": "Probing reality",
+                "user_answer": "Pattern discovery",
+                "type": "multiple_choice",
+                "correct": false,
+                "evaluation": {
+                    "result": "incorrect",
+                    "feedback": ""
+                }
+            },
+            {
+                "question": "What is the primary function of a 'cell' within a Jupyter notebook environment?",
+                "topic": "Jupyter Notebooks",
+                "correct_answer": "A cell is a segment of a document that can contain source code to be executed, or other content like markdown text, which allows for interactive development, documentation, and the creation of replicable experiments.",
+                "user_answer": "bla",
+                "type": "short_answer",
+                "correct": false,
+                "evaluation": {
+                    "result": "incorrect",
+                    "feedback": "The student's response is irrelevant and does not address the question regarding the function of a cell in a Jupyter notebook."
+                }
+            }
+        ]
+    },
+    {
+        "date": "2026-07-30 13:10:02.370455",
+        "total_questions": 5,
+        "score": 2,
+        "percentage": 40.0,
+        "questions": [
+            {
+                "question": "What is defined in the notes as the process of rendering into data aspects of the world that have never been quantified before?",
+                "topic": "Datification",
+                "correct_answer": "Datification",
+                "user_answer": "Datification",
+                "type": "multiple_choice",
+                "correct": true,
+                "evaluation": {
+                    "result": "correct",
+                    "feedback": ""
+                }
+            },
+            {
+                "question": "Which Python library is described as providing a fast and efficient DataFrame object with integrated indexing for data manipulation?",
+                "topic": "Python Libraries",
+                "correct_answer": "Pandas",
+                "user_answer": "Pandas",
+                "type": "multiple_choice",
+                "correct": true,
+                "evaluation": {
+                    "result": "correct",
+                    "feedback": ""
+                }
+            },
+            {
+                "question": "List the four different strategies mentioned in the notes that data science allows us to adopt to explore the world using data.",
+                "topic": "Data Science Strategies",
+                "correct_answer": "1. Probing reality, 2. Pattern discovery, 3. Predicting future events, 4. Understanding people and the world.",
+                "user_answer": "bka",
+                "type": "short_answer",
+                "correct": false,
+                "evaluation": {
+                    "result": "incorrect",
+                    "feedback": "The student's response is unintelligible and does not address the four strategies of data science mentioned in the notes."
+                }
+            },
+            {
+                "question": "In a Jupyter Notebook, what is the significance of a 'cell'?",
+                "topic": "Jupyter Notebook",
+                "correct_answer": "A cell is a segment of a notebook document that can contain source code to be executed, markdown text, or other content like graphics.",
+                "user_answer": "blue",
+                "type": "short_answer",
+                "correct": false,
+                "evaluation": {
+                    "result": "incorrect",
+                    "feedback": "The student's answer is irrelevant and does not address the function or definition of a cell within a Jupyter Notebook."
+                }
+            },
+            {
+                "question": "Data science is commonly defined as a methodology by which what can be inferred from data?",
+                "topic": "Data Science",
+                "correct_answer": "Actionable insights",
+                "user_answer": "Raw statistics",
+                "type": "multiple_choice",
+                "correct": false,
+                "evaluation": {
+                    "result": "incorrect",
+                    "feedback": ""
+                }
+            }
+        ]
+    },
+    {
+        "date": "2026-07-30 13:11:18.807130",
+        "total_questions": 5,
+        "score": 0,
+        "percentage": 0.0,
+        "questions": [
+            {
+                "question": "Besides 'datification', what other core ingredient does the text identify as being essential to the current data science revolution?",
+                "topic": "Datification",
+                "correct_answer": "The democratization of data analysis.",
+                "user_answer": "bla",
+                "type": "short_answer",
+                "correct": false,
+                "evaluation": {
+                    "result": "incorrect",
+                    "feedback": "The student's response is irrelevant and does not address the question regarding the core ingredients of the data science revolution."
+                }
+            },
+            {
+                "question": "Which Python library is specifically described as the 'cornerstone toolbox for scientific computing' and provides support for multidimensional arrays?",
+                "topic": "Python libraries",
+                "correct_answer": "NumPy",
+                "user_answer": "Pandas",
+                "type": "multiple_choice",
+                "correct": false,
+                "evaluation": {
+                    "result": "incorrect",
+                    "feedback": ""
+                }
+            },
+            {
+                "question": "When utilizing a Jupyter Notebook, what determines the default behavior of column arrangement in a DataFrame when the 'columns' keyword is not specified in the constructor?",
+                "topic": "Jupyter Notebook",
+                "correct_answer": "Alphabetical order",
+                "user_answer": "The order in which they appear in the source file",
+                "type": "multiple_choice",
+                "correct": false,
+                "evaluation": {
+                    "result": "incorrect",
+                    "feedback": ""
+                }
+            },
+            {
+                "question": "In the context of the four strategies used to explore the world using data, which strategy specifically focuses on using methods like A/B testing for web development?",
+                "topic": "Data Science strategies",
+                "correct_answer": "Probing reality",
+                "user_answer": "bla",
+                "type": "short_answer",
+                "correct": false,
+                "evaluation": {
+                    "result": "incorrect",
+                    "feedback": "The student's response is irrelevant and does not address the question regarding the data exploration strategy known as 'Probing reality'."
+                }
+            },
+            {
+                "question": "In the Pandas library, what specific term does the text use to refer to the individual columns within a DataFrame, noting that each consists of a list of values with an index?",
+                "topic": "Pandas Data Structures",
+                "correct_answer": "Series",
+                "user_answer": "Vectors",
+                "type": "multiple_choice",
+                "correct": false,
+                "evaluation": {
+                    "result": "incorrect",
+                    "feedback": ""
+                }
+            }
+        ]
+    }
+]

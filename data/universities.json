@@ -1,0 +1,14 @@
+{
+    "Meru University": {
+        "faculties": {
+            "Computing & Informatics": {
+                "programmes": [
+                    "Bachelor of Data Science",
+                    "Computer Science",
+                    "Information Technology",
+                    "Software Engineering"
+                ]
+            }
+        }
+    }
+}

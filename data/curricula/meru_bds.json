@@ -1,0 +1,17 @@
+{
+    "year_1": {
+        "semester_1": [
+            {
+                "code": "CIT1101",
+                "name": "Introduction to Programming"
+            }
+        ],
+
+        "semester_2": [
+            {
+                "code": "CIT3117",
+                "name": "Data Communications"
+            }
+        ]
+    }
+}

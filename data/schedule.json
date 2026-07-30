@@ -1,0 +1,82 @@
+[
+    {
+        "course_code": "CDS 3103",
+        "day": "Monday",
+        "start_time": "7:00 AM",
+        "end_time": "10:00 AM",
+        "venue": "TB 02",
+        "lecturer": "PROF. S. MUTUA"
+    },
+    {
+        "course_code": "CIT 3117",
+        "day": "Monday",
+        "start_time": "10:00 AM",
+        "end_time": "1:00 PM",
+        "venue": "TB 10",
+        "lecturer": "D. KALUI"
+    },
+    {
+        "course_code": "CCS 3200",
+        "day": "Tuesday",
+        "start_time": "7:00 AM",
+        "end_time": "10:00 AM",
+        "venue": "TB 11",
+        "lecturer": "D. KITARIA"
+    },
+    {
+        "course_code": "CIT 3201",
+        "day": "Tuesday",
+        "start_time": "10:00 AM",
+        "end_time": "1:00 PM",
+        "venue": "TB 16",
+        "lecturer": "A. IRUNGU"
+    },
+    {
+        "course_code": "CIT 3203",
+        "day": "Wednesday",
+        "start_time": "7:00 AM",
+        "end_time": "10:00 AM",
+        "venue": "TB 11",
+        "lecturer": "A. ORTO"
+    },
+    {
+        "course_code": "CCS 3201",
+        "day": "Thursday",
+        "start_time": "7:00 AM",
+        "end_time": "10:00 AM",
+        "venue": "TB 03",
+        "lecturer": "DR AMOS"
+    },
+    {
+        "course_code": "CIT 3200",
+        "day": "Thursday",
+        "start_time": "10:00 AM",
+        "end_time": "1:00 PM",
+        "venue": "TB 07",
+        "lecturer": "DR. M. MWADULO"
+    },
+    {
+        "course_code": "CDS 3200",
+        "day": "Thursday",
+        "start_time": "1:00 PM",
+        "end_time": "4:00 PM",
+        "venue": "ECA 05",
+        "lecturer": "F.GATWIRI"
+    },
+    {
+        "course_code": "CIT 3201",
+        "day": "Friday",
+        "start_time": "7:00 AM",
+        "end_time": "10:00 AM",
+        "venue": "TB 16",
+        "lecturer": "A. IRUNGU"
+    },
+    {
+        "course_code": "SMA 3152",
+        "day": "Friday",
+        "start_time": "10:00 AM",
+        "end_time": "1:00 PM",
+        "venue": "ECA 05",
+        "lecturer": "Dr JOSEPHINE"
+    }
+]
