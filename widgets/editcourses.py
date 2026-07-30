@@ -1,8 +1,10 @@
 import tkinter as tk
 
 from widgets.datepicker import DatePicker
+from managers.thememanager import ThemeManager
 
 class EditCourseDialog:
+
 
     def __init__(
         self,
@@ -10,6 +12,8 @@ class EditCourseDialog:
         course,
         save_callback
     ):
+
+        self.theme = ThemeManager()
 
         self.window = tk.Toplevel(parent)
 
@@ -20,21 +24,18 @@ class EditCourseDialog:
         )
 
         self.window.configure(
-            bg="#202020"
+            bg=self.theme.get("background")
         )
-
 
         self.course = course
 
         self.save_callback = save_callback
 
-
-
         title = tk.Label(
             self.window,
             text="Edit Course",
             font=("Telma", 24),
-            bg="#202020",
+            bg=self.theme.get("background"),
             fg=self.theme.get("text")
         )
 
@@ -42,20 +43,19 @@ class EditCourseDialog:
             pady=20
         )
 
-
-
-        # Name
+        # ==========================================================
+        # NAME
+        # ==========================================================
 
         tk.Label(
             self.window,
             text="Course Name",
-            bg="#202020",
+            bg=self.theme.get("background"),
             fg=self.theme.get("text")
         ).pack(
             anchor="w",
             padx=40
         )
-
 
         self.name_entry = tk.Entry(
             self.window,
@@ -68,23 +68,22 @@ class EditCourseDialog:
 
         self.name_entry.insert(
             0,
-            course["name"]
+            course.get("name", "")
         )
 
-
-
-        # Lecturer
+        # ==========================================================
+        # LECTURER
+        # ==========================================================
 
         tk.Label(
             self.window,
             text="Lecturer",
-            bg="#202020",
+            bg=self.theme.get("background"),
             fg=self.theme.get("text")
         ).pack(
             anchor="w",
             padx=40
         )
-
 
         self.lecturer_entry = tk.Entry(
             self.window,
@@ -95,26 +94,24 @@ class EditCourseDialog:
             pady=5
         )
 
-
         self.lecturer_entry.insert(
             0,
-            course["lecturer"]
+            course.get("lecturer", "")
         )
 
-
-
-        # Credits
+        # ==========================================================
+        # CREDITS
+        # ==========================================================
 
         tk.Label(
             self.window,
             text="Credits",
-            bg="#202020",
+            bg=self.theme.get("background"),
             fg=self.theme.get("text")
         ).pack(
             anchor="w",
             padx=40
         )
-
 
         self.credits_entry = tk.Entry(
             self.window,
@@ -125,29 +122,26 @@ class EditCourseDialog:
             pady=5
         )
 
-
         self.credits_entry.insert(
             0,
-            course["credits"]
+            course.get("credits", "")
         )
 
-
-
-        # Exam date
+        # ==========================================================
+        # EXAM DATE
+        # ==========================================================
 
         tk.Label(
             self.window,
             text="Exam Date",
-            bg="#202020",
+            bg=self.theme.get("background"),
             fg=self.theme.get("text")
         ).pack(
             anchor="w",
             padx=40
         )
 
-
         self.date_value = tk.StringVar()
-
 
         self.date_entry = tk.Entry(
             self.window,
@@ -158,7 +152,6 @@ class EditCourseDialog:
         self.date_entry.pack(
             pady=5
         )
-
 
         pick_button = tk.Button(
             self.window,
@@ -173,11 +166,13 @@ class EditCourseDialog:
             pady=5
         )
 
-        if course["exam_date"]:
-            self.date_value.set(
-                course["exam_date"]
-            )
+        self.date_value.set(
+            course.get("exam_date", "")
+        )
 
+        # ==========================================================
+        # SAVE
+        # ==========================================================
 
         save_button = tk.Button(
             self.window,
@@ -193,8 +188,6 @@ class EditCourseDialog:
             ipadx=20
         )
 
-
-
     def save(self):
 
         updated_course = {
@@ -209,12 +202,10 @@ class EditCourseDialog:
 
         }
 
-
         self.save_callback(
             self.course["name"],
             updated_course
         )
-
 
         self.window.destroy()
 
@@ -224,7 +215,6 @@ class EditCourseDialog:
             self.window,
             self.set_date
         )
-
 
     def set_date(self, value):
 

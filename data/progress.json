@@ -991,5 +991,73 @@
                 }
             }
         ]
+    },
+    {
+        "date": "2026-07-30 20:16:53.335211",
+        "total_questions": 5,
+        "score": 2,
+        "percentage": 40.0,
+        "questions": [
+            {
+                "question": "What is defined as the process of rendering into data aspects of the world that have never been quantified before?",
+                "topic": "Introduction to Data Science",
+                "correct_answer": "Datification",
+                "user_answer": "Datification",
+                "type": "multiple_choice",
+                "correct": true,
+                "evaluation": {
+                    "result": "correct",
+                    "feedback": ""
+                }
+            },
+            {
+                "question": "Which Python library is primarily used as the cornerstone for scientific computing, providing support for multidimensional arrays and linear algebra functions?",
+                "topic": "Toolboxes for Data Scientists",
+                "correct_answer": "NumPy",
+                "user_answer": "NumPy",
+                "type": "multiple_choice",
+                "correct": true,
+                "evaluation": {
+                    "result": "correct",
+                    "feedback": ""
+                }
+            },
+            {
+                "question": "In the context of the Pandas library, what is the 'Series' object?",
+                "topic": "Pandas",
+                "correct_answer": "A specific type of data consisting of a list of values where each value has an index",
+                "user_answer": "An object used exclusively for plotting graphics",
+                "type": "multiple_choice",
+                "correct": false,
+                "evaluation": {
+                    "result": "incorrect",
+                    "feedback": ""
+                }
+            },
+            {
+                "question": "Explain the significance of 'cells' in a Jupyter notebook environment.",
+                "topic": "Integrated Development Environments (IDE)",
+                "correct_answer": "Cells are segments of a document that contain content such as executable source code, markdown (wiki text) for documentation, or visual elements like Matplotlib graphics, allowing for interactive and replicable data analysis.",
+                "user_answer": "i dont know",
+                "type": "short_answer",
+                "correct": false,
+                "evaluation": {
+                    "result": "incorrect",
+                    "feedback": "The student indicated they do not know the answer, which does not address the question regarding the significance of cells in a Jupyter notebook."
+                }
+            },
+            {
+                "question": "What are the four strategies identified in the notes for exploring the world using data?",
+                "topic": "Introduction to Data Science",
+                "correct_answer": "The four strategies are: Probing reality, Pattern discovery, Predicting future events, and Understanding people and the world.",
+                "user_answer": "",
+                "type": "short_answer",
+                "correct": false,
+                "evaluation": {
+                    "result": "incorrect",
+                    "feedback": "The student did not provide an answer to the question."
+                }
+            }
+        ]
     }
 ]

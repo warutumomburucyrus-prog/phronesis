@@ -5,16 +5,19 @@ from tkinter import ttk
 from tkinter import messagebox
 from widgets.datepicker import DatePicker
 from managers.coursemanager import CourseManager
+from managers.thememanager import ThemeManager
 
 
 class AddAssignmentDialog:
 
     def __init__(self, parent, save_callback, assignment=None):
 
+        self.theme = ThemeManager()
+
         self.window = tk.Toplevel(parent)
         self.window.title("Assignment")
         self.window.geometry("400x450")
-        self.window.configure(bg="#202020")
+        self.window.configure(bg=self.theme.get("background"))
 
         self.save_callback = save_callback
         self.assignment = assignment
@@ -24,7 +27,7 @@ class AddAssignmentDialog:
             self.window,
             text="Assignment",
             font=("Segoe UI",20,"bold"),
-            bg="#202020",
+            bg=self.theme.get("background"),
             fg=self.theme.get("text")
         )
 
@@ -37,7 +40,7 @@ class AddAssignmentDialog:
         tk.Label(
             self.window,
             text="Topic",
-            bg="#202020",
+            bg=self.theme.get("background"),
             fg=self.theme.get("text")
         ).pack(
             anchor="w",
@@ -75,7 +78,7 @@ class AddAssignmentDialog:
         tk.Label(
             self.window,
             text="Course",
-            bg="#202020",
+            bg=self.theme.get("background"),
             fg=self.theme.get("text")
         ).pack(
             anchor="w",
@@ -111,7 +114,7 @@ class AddAssignmentDialog:
         tk.Label(
             self.window,
             text="Submission Type",
-            bg="#202020",
+            bg=self.theme.get("background"),
             fg=self.theme.get("text")
         ).pack(
             anchor="w",
@@ -148,7 +151,7 @@ class AddAssignmentDialog:
         tk.Label(
             self.window,
             text="Deadline",
-            bg="#202020",
+            bg=self.theme.get("background"),
             fg=self.theme.get("text")
         ).pack(anchor="w", padx=40)
 

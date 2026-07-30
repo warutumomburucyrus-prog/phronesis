@@ -1,11 +1,14 @@
 import tkinter as tk
 import calendar
 from datetime import date
+from managers.thememanager import ThemeManager
 
 
 class DatePicker:
 
     def __init__(self, parent, callback):
+
+        self.theme= ThemeManager()
 
         self.callback = callback
 
@@ -15,7 +18,7 @@ class DatePicker:
         self.window.geometry("300x300")
 
         self.window.configure(
-            bg="#202020"
+            bg=self.theme.get("background")
         )
 
         self.current_date = date.today()
@@ -27,7 +30,7 @@ class DatePicker:
 
         self.header = tk.Frame(
             self.window,
-            bg="#202020"
+            bg=self.theme.get("background")
         )
 
         self.header.pack(
@@ -38,7 +41,7 @@ class DatePicker:
         self.month_label = tk.Label(
             self.header,
             font=("Segoe UI",14,"bold"),
-            bg="#202020",
+            bg=self.theme.get("background"),
             fg=self.theme.get("text")
         )
 
@@ -68,7 +71,7 @@ class DatePicker:
 
         self.days_frame = tk.Frame(
             self.window,
-            bg="#202020"
+            bg=self.theme.get("background")
         )
 
         self.days_frame.pack()
@@ -97,7 +100,7 @@ class DatePicker:
             tk.Label(
                 self.days_frame,
                 text=day,
-                bg="#202020",
+                bg=self.theme.get("background"),
                 fg=self.theme.get("text"),
                 width=4
             ).grid(

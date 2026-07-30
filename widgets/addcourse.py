@@ -1,10 +1,13 @@
 import tkinter as tk
 
 from widgets.datepicker import DatePicker
+from managers.thememanager import ThemeManager
 
 class AddCourseDialog:
 
     def __init__(self, parent, save_callback):
+
+        self.theme=ThemeManager()
 
         self.window = tk.Toplevel(parent)
 

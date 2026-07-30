@@ -30,6 +30,10 @@ class SchedulePage:
             bg=self.theme.get("background")
         )
 
+        # ==========================================================
+        # MAIN SCHEDULE PAGE SCROLL
+        # ==========================================================
+
         self.canvas = tk.Canvas(
             self.frame,
             bg=self.theme.get("background"),
@@ -42,12 +46,10 @@ class SchedulePage:
             command=self.canvas.yview
         )
 
-
         self.content_frame = tk.Frame(
             self.canvas,
             bg=self.theme.get("background")
         )
-
 
         self.content_window = self.canvas.create_window(
             (0, 0),
@@ -55,33 +57,9 @@ class SchedulePage:
             anchor="nw"
         )
 
-        self.canvas.update_idletasks()
-
-        self.canvas.configure(
-            scrollregion=self.canvas.bbox("all")
-        )
-
-        self.content_frame.bind(
-            "<Configure>",
-            lambda e: self.canvas.configure(
-                scrollregion=self.canvas.bbox("all")
-            )
-        )
-
-
-        self.canvas.bind(
-            "<Configure>",
-            lambda e: self.canvas.itemconfig(
-                self.content_window,
-                width=e.width
-            )
-        )
-
-
         self.canvas.configure(
             yscrollcommand=self.scrollbar.set
         )
-
 
         self.canvas.pack(
             side="left",
@@ -89,18 +67,64 @@ class SchedulePage:
             expand=True
         )
 
-
         self.scrollbar.pack(
             side="right",
             fill="y"
         )
-        
+
+        # Update main scroll region whenever content changes
+        self.content_frame.bind(
+            "<Configure>",
+            self._update_main_scrollregion
+        )
+
+        # Keep content width equal to the main canvas width
+        self.canvas.bind(
+            "<Configure>",
+            self._resize_content
+        )
+
+        # ==========================================================
+        # INNER TIMETABLE CANVASES
+        # ==========================================================
+
+        self.inner_canvases = set()
+
+        # One global mouse-wheel binding.
+        #
+        # IMPORTANT:
+        # Do NOT use bind_all/unbind_all inside individual
+        # timetable cards. That was causing the scrolling conflict.
+        self.frame.bind_all(
+            "<MouseWheel>",
+            self._on_global_mousewheel
+        )
+
+        # Linux support
+        self.frame.bind_all(
+            "<Button-4>",
+            self._on_mousewheel_up
+        )
+
+        self.frame.bind_all(
+            "<Button-5>",
+            self._on_mousewheel_down
+        )
+
+        # ==========================================================
+        # MANAGERS
+        # ==========================================================
+
         self.pdf_manager = PDFManager()
         self.timetable_ai = TimetableAI()
         self.course_wizard = None
         self.course_manager = CourseManager()
         self.course_resolver = CourseResolverManager()
+        self.schedule_manager = ScheduleManager()
 
+        # ==========================================================
+        # TITLE
+        # ==========================================================
 
         title = tk.Label(
             self.content_frame,
@@ -114,6 +138,9 @@ class SchedulePage:
             pady=30
         )
 
+        # ==========================================================
+        # IMPORT BUTTON
+        # ==========================================================
 
         self.import_button = tk.Button(
             self.content_frame,
@@ -128,6 +155,9 @@ class SchedulePage:
             pady=10
         )
 
+        # ==========================================================
+        # TIMETABLE CARD
+        # ==========================================================
 
         self.schedule_card = tk.Frame(
             self.content_frame,
@@ -157,26 +187,15 @@ class SchedulePage:
             expand=True
         )
 
-        self.canvas.bind(
-            "<Enter>",
-            lambda e: self.canvas.bind_all(
-                "<MouseWheel>",
-                self._on_mousewheel
-            )
-        )
-
-        self.canvas.bind(
-            "<Leave>",
-            lambda e: self.canvas.unbind_all(
-                "<MouseWheel>"
-            )
-        )
-
-        self.schedule_manager = ScheduleManager()
-
-        self.assignment_manager = AssignmentManager()
+        # ==========================================================
+        # BUILD TIMETABLE
+        # ==========================================================
 
         self.build_timetable()
+
+        # ==========================================================
+        # ASSIGNMENTS HEADER
+        # ==========================================================
 
         assignment_header = tk.Frame(
             self.content_frame,
@@ -186,9 +205,8 @@ class SchedulePage:
         assignment_header.pack(
             fill="x",
             padx=40,
-            pady=(20,10)
+            pady=(20, 10)
         )
-
 
         assignments_title = tk.Label(
             assignment_header,
@@ -201,7 +219,6 @@ class SchedulePage:
         assignments_title.pack(
             side="left"
         )
-
 
         add_assignment_button = tk.Button(
             assignment_header,
@@ -216,6 +233,10 @@ class SchedulePage:
             side="right"
         )
 
+        # ==========================================================
+        # ASSIGNMENTS CONTAINER
+        # ==========================================================
+
         self.assignment_container = tk.Frame(
             self.content_frame,
             bg=self.theme.get("card"),
@@ -229,7 +250,6 @@ class SchedulePage:
             fill="x"
         )
 
-
         self.assignment_container.grid_columnconfigure(
             0,
             weight=1
@@ -242,27 +262,122 @@ class SchedulePage:
 
         self.load_assignments()
 
-        self.canvas.bind(
-            "<Enter>",
-            lambda e: self.canvas.bind_all(
-                "<MouseWheel>",
-                self._on_mousewheel
-            )
+    # ==============================================================
+    # MAIN SCROLL REGION
+    # ==============================================================
+
+    def _update_main_scrollregion(self, event=None):
+
+        self.canvas.configure(
+            scrollregion=self.canvas.bbox("all")
         )
 
-        self.canvas.bind(
-            "<Leave>",
-            lambda e: self.canvas.unbind_all(
-                "<MouseWheel>"
-            )
+    def _resize_content(self, event):
+
+        self.canvas.itemconfig(
+            self.content_window,
+            width=event.width
         )
 
-    def _on_mousewheel(self, event):
+        self.canvas.configure(
+            scrollregion=self.canvas.bbox("all")
+        )
 
+    # ==============================================================
+    # FIND INNER CANVAS UNDER MOUSE
+    # ==============================================================
+
+    def _find_inner_canvas(self, widget):
+
+        current = widget
+
+        while current is not None:
+
+            if current in self.inner_canvases:
+
+                return current
+
+            try:
+                current = current.master
+            except AttributeError:
+                break
+
+        return None
+
+    # ==============================================================
+    # GLOBAL MOUSE WHEEL
+    # ==============================================================
+
+    def _on_global_mousewheel(self, event):
+
+        inner_canvas = self._find_inner_canvas(
+            event.widget
+        )
+
+        # If mouse is inside one of the timetable day cards,
+        # scroll that day's class list.
+        if inner_canvas is not None:
+
+            inner_canvas.yview_scroll(
+                int(-1 * (event.delta / 120)),
+                "units"
+            )
+
+            return
+
+        # Otherwise scroll the entire SchedulePage.
         self.canvas.yview_scroll(
             int(-1 * (event.delta / 120)),
             "units"
         )
+
+    # ==============================================================
+    # LINUX MOUSE WHEEL
+    # ==============================================================
+
+    def _on_mousewheel_up(self, event):
+
+        inner_canvas = self._find_inner_canvas(
+            event.widget
+        )
+
+        if inner_canvas is not None:
+
+            inner_canvas.yview_scroll(
+                -1,
+                "units"
+            )
+
+            return
+
+        self.canvas.yview_scroll(
+            -1,
+            "units"
+        )
+
+    def _on_mousewheel_down(self, event):
+
+        inner_canvas = self._find_inner_canvas(
+            event.widget
+        )
+
+        if inner_canvas is not None:
+
+            inner_canvas.yview_scroll(
+                1,
+                "units"
+            )
+
+            return
+
+        self.canvas.yview_scroll(
+            1,
+            "units"
+        )
+
+    # ==============================================================
+    # IMPORT TIMETABLE
+    # ==============================================================
 
     def import_pdf(self):
 
@@ -272,33 +387,31 @@ class SchedulePage:
             ]
         )
 
-
         if not file_path:
             return
 
-
         try:
 
-            # Step 1: Extract text
+            # Step 1: Extract PDF text
             text = self.pdf_manager.extract_text(
                 file_path
             )
 
-            # Step 2: Ask Gemini to structure it
+            # Step 2: Ask Gemini to structure timetable
             schedule_json = self.timetable_ai.convert_to_schedule(
                 text
             )
-            
+
             added = self.course_manager.auto_add_from_schedule(
                 schedule_json
             )
 
-            print(f"automatically added {added} new courses")
+            print(
+                f"automatically added {added} new courses"
+            )
 
             course_codes = list({
-
                 lesson["course_code"]
-
                 for lesson in schedule_json
             })
 
@@ -315,6 +428,7 @@ class SchedulePage:
             if missing:
 
                 if self.course_wizard is None:
+
                     self.course_wizard = CourseWizard(
                         self.frame,
                         missing,
@@ -322,13 +436,11 @@ class SchedulePage:
                         self.wizard_finished
                     )
 
-            # Step 3: Save result
-
+            # Step 3: Save timetable
             os.makedirs(
                 "data",
                 exist_ok=True
             )
-
 
             with open(
                 "data/schedule.json",
@@ -342,24 +454,68 @@ class SchedulePage:
                     indent=4
                 )
 
-            messagebox.showinfo(
-                "Success",
-                f"Timetable imported successfully\n\n{added} new course(s) added automatically."
+            # Rebuild timetable immediately after importing.
+            self.schedule_manager = ScheduleManager()
+
+            for widget in self.timetable_frame.winfo_children():
+                widget.destroy()
+
+            self.inner_canvases.clear()
+
+            self.build_timetable()
+
+            self.content_frame.update_idletasks()
+
+            self.canvas.configure(
+                scrollregion=self.canvas.bbox("all")
             )
 
-
+            messagebox.showinfo(
+                "Success",
+                f"Timetable imported successfully\n\n"
+                f"{added} new course(s) added automatically."
+            )
 
         except Exception as e:
 
-           import traceback
-           traceback.print_exc()
+            import traceback
+            traceback.print_exc()
+
+            messagebox.showerror(
+                "Import Error",
+                f"Could not import timetable.\n\n{e}"
+            )
+
+    # ==============================================================
+    # WIZARD FINISHED
+    # ==============================================================
 
     def wizard_finished(self):
+
+        self.course_wizard = None
 
         messagebox.showinfo(
             title="Complete",
             message="All courses completed!"
         )
+
+        # Refresh timetable course names after wizard
+        for widget in self.timetable_frame.winfo_children():
+            widget.destroy()
+
+        self.inner_canvases.clear()
+
+        self.build_timetable()
+
+        self.content_frame.update_idletasks()
+
+        self.canvas.configure(
+            scrollregion=self.canvas.bbox("all")
+        )
+
+    # ==============================================================
+    # BUILD TIMETABLE
+    # ==============================================================
 
     def build_timetable(self):
 
@@ -373,23 +529,47 @@ class SchedulePage:
             "Friday"
         ]
 
-        self.timetable_frame.grid_columnconfigure(0, weight=1)
-        self.timetable_frame.grid_columnconfigure(1, weight=1)
-        self.timetable_frame.grid_columnconfigure(2, weight=1)
+        self.timetable_frame.grid_columnconfigure(
+            0,
+            weight=1
+        )
 
-        self.timetable_frame.grid_rowconfigure(0, weight=1)
-        self.timetable_frame.grid_rowconfigure(1, weight=1)
+        self.timetable_frame.grid_columnconfigure(
+            1,
+            weight=1
+        )
+
+        self.timetable_frame.grid_columnconfigure(
+            2,
+            weight=1
+        )
+
+        self.timetable_frame.grid_rowconfigure(
+            0,
+            weight=1
+        )
+
+        self.timetable_frame.grid_rowconfigure(
+            1,
+            weight=1
+        )
 
         for index, day in enumerate(days):
 
             if index < 3:
+
                 row = 0
                 column = index
+
             else:
+
                 row = 1
                 column = index - 3
 
-            # Day card
+            # ======================================================
+            # DAY CARD
+            # ======================================================
+
             day_frame = tk.Frame(
                 self.timetable_frame,
                 bg=self.theme.get("button"),
@@ -405,7 +585,10 @@ class SchedulePage:
                 sticky="nsew"
             )
 
-            # Day title
+            # ======================================================
+            # DAY TITLE
+            # ======================================================
+
             title = tk.Label(
                 day_frame,
                 text=day,
@@ -420,7 +603,10 @@ class SchedulePage:
                 pady=(10, 8)
             )
 
-            # Scrollable class area
+            # ======================================================
+            # INNER CLASS CANVAS
+            # ======================================================
+
             class_canvas = tk.Canvas(
                 day_frame,
                 bg=self.theme.get("button"),
@@ -444,21 +630,30 @@ class SchedulePage:
                 anchor="nw"
             )
 
+            # Register this inner canvas.
+            self.inner_canvases.add(
+                class_canvas
+            )
+
+            # Update inner scroll region.
             class_list.bind(
                 "<Configure>",
                 lambda event, canvas=class_canvas:
-                    canvas.configure(
-                        scrollregion=canvas.bbox("all")
-                    )
+                canvas.configure(
+                    scrollregion=canvas.bbox("all")
+                )
             )
 
+            # Keep inner content width equal to canvas width.
             class_canvas.bind(
                 "<Configure>",
-                lambda event, canvas=class_canvas, window=class_window:
-                    canvas.itemconfig(
-                        window,
-                        width=event.width
-                    )
+                lambda event,
+                canvas=class_canvas,
+                window=class_window:
+                canvas.itemconfig(
+                    window,
+                    width=event.width
+                )
             )
 
             class_canvas.configure(
@@ -479,34 +674,10 @@ class SchedulePage:
                 pady=(0, 8)
             )
 
-            # Mouse-wheel scrolling
-            def enable_scroll(event, canvas=class_canvas):
+            # ======================================================
+            # CLASSES FOR THIS DAY
+            # ======================================================
 
-                canvas.bind_all(
-                    "<MouseWheel>",
-                    lambda e: canvas.yview_scroll(
-                        int(-1 * (e.delta / 120)),
-                        "units"
-                    )
-                )
-
-            def disable_scroll(event, canvas=class_canvas):
-
-                canvas.unbind_all(
-                    "<MouseWheel>"
-                )
-
-            class_canvas.bind(
-                "<Enter>",
-                enable_scroll
-            )
-
-            class_canvas.bind(
-                "<Leave>",
-                disable_scroll
-            )
-
-            # Get classes for this day
             classes = schedule.get(
                 day,
                 []
@@ -528,7 +699,6 @@ class SchedulePage:
 
             else:
 
-                # Create each class inside the scrollable area
                 for item in classes:
 
                     course_name = self.course_manager.get_course_name(
@@ -548,7 +718,10 @@ class SchedulePage:
                         pady=5
                     )
 
-                    # Course name
+                    # ==================================================
+                    # COURSE NAME
+                    # ==================================================
+
                     tk.Label(
                         class_box,
                         text=(
@@ -560,14 +733,18 @@ class SchedulePage:
                         fg=self.theme.get("text"),
                         font=("Segoe UI", 10, "bold"),
                         anchor="w",
-                        justify="left"
+                        justify="left",
+                        wraplength=250
                     ).pack(
                         fill="x",
                         padx=10,
                         pady=(8, 1)
                     )
 
-                    # Course code
+                    # ==================================================
+                    # COURSE CODE
+                    # ==================================================
+
                     tk.Label(
                         class_box,
                         text=item["course_code"],
@@ -580,7 +757,10 @@ class SchedulePage:
                         padx=10
                     )
 
-                    # Time
+                    # ==================================================
+                    # TIME
+                    # ==================================================
+
                     tk.Label(
                         class_box,
                         text=(
@@ -596,7 +776,10 @@ class SchedulePage:
                         padx=10
                     )
 
-                    # Venue
+                    # ==================================================
+                    # VENUE
+                    # ==================================================
+
                     tk.Label(
                         class_box,
                         text=f"📍 {item['venue']}",
@@ -609,6 +792,10 @@ class SchedulePage:
                         padx=10,
                         pady=(0, 8)
                     )
+
+    # ==============================================================
+    # ASSIGNMENTS
+    # ==============================================================
 
     def load_assignments(self):
 
@@ -633,10 +820,7 @@ class SchedulePage:
 
             return
 
-
-        for assignment in assignments:
-            
-            index = assignments.index(assignment)
+        for index, assignment in enumerate(assignments):
 
             card = tk.Frame(
                 self.assignment_container,
@@ -652,7 +836,7 @@ class SchedulePage:
                 pady=10,
                 sticky="nsew"
             )
-            
+
             info = tk.Frame(
                 card,
                 bg=self.theme.get("button")
@@ -666,24 +850,25 @@ class SchedulePage:
                 pady=10
             )
 
-
             tk.Label(
                 info,
-                text=assignment.get("topic", "Unnamed Assignment"),
-                font=("Segoe UI",13,"bold"),
+                text=assignment.get(
+                    "topic",
+                    "Unnamed Assignment"
+                ),
+                font=("Segoe UI", 13, "bold"),
                 bg=self.theme.get("button"),
                 fg=self.theme.get("text")
             ).pack(
                 anchor="w"
             )
 
-
             tk.Label(
                 info,
                 text=(
-                    f"Course: {assignment.get('course','')}\n"
-                    f"Deadline: {assignment.get('deadline','')}\n"
-                    f"Submit: {assignment.get('submission','')}"
+                    f"Course: {assignment.get('course', '')}\n"
+                    f"Deadline: {assignment.get('deadline', '')}\n"
+                    f"Submit: {assignment.get('submission', '')}"
                 ),
                 bg=self.theme.get("button"),
                 fg=self.theme.get("secondary_text"),
@@ -691,7 +876,6 @@ class SchedulePage:
             ).pack(
                 anchor="w"
             )
-
 
             buttons = tk.Frame(
                 card,
@@ -703,18 +887,17 @@ class SchedulePage:
                 padx=10
             )
 
-
             tk.Button(
                 buttons,
                 text="Edit",
                 bg=self.theme.get("button_hover"),
                 fg=self.theme.get("text"),
                 relief="flat",
-                command=lambda a=assignment:self.edit_assignment(a)
+                command=lambda a=assignment:
+                self.edit_assignment(a)
             ).pack(
                 pady=5
             )
-
 
             tk.Button(
                 buttons,
@@ -722,10 +905,15 @@ class SchedulePage:
                 bg=self.theme.get("accent"),
                 fg=self.theme.get("text"),
                 relief="flat",
-                command=lambda a=assignment:self.complete_assignment(a)
+                command=lambda a=assignment:
+                self.complete_assignment(a)
             ).pack(
                 pady=5
             )
+
+    # ==============================================================
+    # COMPLETE ASSIGNMENT
+    # ==============================================================
 
     def complete_assignment(self, assignment):
 
@@ -738,6 +926,16 @@ class SchedulePage:
 
         self.load_assignments()
 
+        self.content_frame.update_idletasks()
+
+        self.canvas.configure(
+            scrollregion=self.canvas.bbox("all")
+        )
+
+    # ==============================================================
+    # ADD ASSIGNMENT
+    # ==============================================================
+
     def add_assignment(self):
 
         AddAssignmentDialog(
@@ -745,24 +943,33 @@ class SchedulePage:
             self.save_assignment
         )
 
-    def edit_assignment(self, assignment):
+    # ==============================================================
+    # EDIT ASSIGNMENT
+    # ==============================================================
 
-        from widgets.addassignment import AddAssignmentDialog
+    def edit_assignment(self, assignment):
 
         AddAssignmentDialog(
             self.frame,
-            lambda updated: self.update_assignment(
+            lambda updated:
+            self.update_assignment(
                 assignment,
                 updated
             ),
             assignment
         )
 
+    # ==============================================================
+    # SAVE ASSIGNMENT
+    # ==============================================================
+
     def save_assignment(self, assignment):
 
         assignments = self.assignment_manager.load_assignments()
 
-        assignments.append(assignment)
+        assignments.append(
+            assignment
+        )
 
         self.assignment_manager.save_assignments(
             assignments
@@ -773,12 +980,20 @@ class SchedulePage:
             "Assignment added successfully!"
         )
 
-        self.navigate()
+        if self.navigate:
+            self.navigate()
 
-    def update_assignment(self, old_assignment, updated_assignment):
+    # ==============================================================
+    # UPDATE ASSIGNMENT
+    # ==============================================================
+
+    def update_assignment(
+        self,
+        old_assignment,
+        updated_assignment
+    ):
 
         assignments = self.assignment_manager.load_assignments()
-
 
         for index, assignment in enumerate(assignments):
 
@@ -788,18 +1003,24 @@ class SchedulePage:
 
                 break
 
-
         self.assignment_manager.save_assignments(
             assignments
         )
 
-
         for widget in self.assignment_container.winfo_children():
-
             widget.destroy()
 
-
         self.load_assignments()
+
+        self.content_frame.update_idletasks()
+
+        self.canvas.configure(
+            scrollregion=self.canvas.bbox("all")
+        )
+
+    # ==============================================================
+    # SHOW ASSIGNMENT SECTION
+    # ==============================================================
 
     def show_assignment_section(self):
 
@@ -807,6 +1028,7 @@ class SchedulePage:
         self.content_frame.update_idletasks()
 
         target_y = self.assignment_container.winfo_y()
+
         content_height = self.content_frame.winfo_height()
         canvas_height = self.canvas.winfo_height()
 
@@ -825,4 +1047,6 @@ class SchedulePage:
             min(position, 1)
         )
 
-        self.canvas.yview_moveto(position)
+        self.canvas.yview_moveto(
+            position
+        )
