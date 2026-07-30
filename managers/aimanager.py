@@ -216,89 +216,115 @@ Your tasks:
                 "in this PDF."
             )
 
-        max_chars = 4000
+        text = text.strip()
 
-        chunks = [
+        print(
+            "Summary input size:",
+            len(text)
+        )
 
-            text[i:i + max_chars]
+        max_chars = 30000
 
-            for i in range(
-                0,
-                len(text),
-                max_chars
-            )
+        if len(text) > max_chars:
 
-        ]
+            text = text[:max_chars]
 
-        summaries = []
-
-        for chunk in chunks:
-
-            prompt = f"""
+        prompt = f"""
     You are Phronesis, an AI university study assistant.
 
-    Summarise this section of study notes.
+    Create a clear, accurate revision guide from the study notes below.
 
-    Requirements:
-
-    - Extract the important concepts.
-    - Explain important definitions.
-    - Preserve formulas.
-    - Explain what formulas mean where appropriate.
-    - Identify important relationships.
+    IMPORTANT:
+    - Summarise ONLY information contained in the notes.
+    - Do not invent facts.
+    - Do not add outside information.
+    - Preserve important formulas exactly.
+    - Explain what important formulas represent.
+    - Preserve important definitions.
+    - Identify relationships between concepts.
     - Highlight exam-relevant information.
-    - Make the result useful for revision.
-    - Do not invent information.
+    - Remove repetition.
+    - Make the result useful for university exam revision.
 
-    NOTES:
+    Organise the response using these sections:
 
-    {chunk}
+    # Revision Guide
+
+    ## 1. Main Topics
+
+    List the major topics covered.
+
+    ## 2. Important Concepts
+
+    Explain the important concepts clearly.
+
+    ## 3. Key Definitions
+
+    List important definitions.
+
+    ## 4. Key Formulas
+
+    List important formulas and explain what the variables mean.
+
+    ## 5. Important Relationships
+
+    Explain important connections between concepts.
+
+    ## 6. Exam Revision Points
+
+    List the most important things the student should remember.
+
+    Do not create quiz questions.
+
+    Do not say that you are generating a quiz.
+
+    Do not talk about the process of summarising.
+
+    Return ONLY the revision guide.
+
+    STUDY NOTES:
+
+    {text}
     """
+
+        try:
 
             response = self.client.models.generate_content(
                 model=AI_MODEL,
                 contents=prompt
             )
 
-            summaries.append(
-                response.text.strip()
+            if not response:
+
+                raise ValueError(
+                    "Gemini returned no response."
+                )
+
+            summary = response.text
+
+            if not summary:
+
+                raise ValueError(
+                    "Gemini returned an empty response."
+                )
+
+            summary = summary.strip()
+
+            print(
+                "Summary output size:",
+                len(summary)
             )
 
-        if len(summaries) == 1:
+            return summary
 
-            return summaries[0]
+        except Exception as e:
 
-        final_prompt = f"""
-    You are Phronesis, an AI university study assistant.
+            print(
+                "SUMMARY GEMINI ERROR:",
+                repr(e)
+            )
 
-    Combine the following section summaries into ONE coherent
-    revision guide.
-
-    Organise the guide into:
-
-    1. Main topics
-    2. Important concepts
-    3. Definitions
-    4. Key formulas
-    5. Important relationships
-    6. Exam revision points
-
-    Do not repeat information unnecessarily.
-
-    Do not invent information.
-
-    SECTION SUMMARIES:
-
-    {"\n\n".join(summaries)}
-    """
-
-        final_response = self.client.models.generate_content(
-            model=AI_MODEL,
-            contents=final_prompt
-        )
-
-        return final_response.text.strip()
-    
+            raise
 
     
     def generate_quiz(

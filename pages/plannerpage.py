@@ -537,7 +537,7 @@ class PlannerPage:
             widget.destroy()
 
         self.question_label.config(
-            text="Generating your new quiz..."
+            text="Summarising your notes..."
         )
 
         self.previous_button.pack_forget()
@@ -582,8 +582,23 @@ class PlannerPage:
 
         try:
 
+            print(
+                "SUMMARY INPUT SIZE:",
+                len(text)
+            )
+
             summary = self.ai.summarise_notes(
                 text
+            )
+
+            print(
+                "SUMMARY RESULT SIZE:",
+                len(summary) if summary else 0
+            )
+
+            print(
+                "SUMMARY RESULT:",
+                summary[:500] if summary else "EMPTY"
             )
 
             self.frame.after(
@@ -595,6 +610,11 @@ class PlannerPage:
         except Exception as e:
 
             error = str(e)
+
+            print(
+                "SUMMARY GENERATION ERROR:",
+                error
+            )
 
             self.frame.after(
                 0,
@@ -609,13 +629,27 @@ class PlannerPage:
             text="Summarise Notes"
         )
 
+        if not summary or not summary.strip():
+
+            self.feedback_label.config(
+                text="Phronesis generated an empty summary.",
+                fg="#FF7777"
+            )
+
+            self.question_label.config(
+                text="Summary unavailable."
+            )
+
+            return
+
         self.feedback_label.config(
-            text="Summary generated.",
+            text="Summary generated successfully.",
             fg="#66DD88"
         )
 
         self.question_label.config(
-            text="Revision Guide"
+            text="Revision Guide",
+            fg=self.theme.get("text")
         )
 
         self.display_response(

@@ -122,7 +122,9 @@ class DashboardPage:
             uniform="card"
         )
 
-        today_classes = self.schedule_manager.load_today_classes()
+        today_classes =  self.get_active_today_classes()
+
+        self.frame.after(30000, self.auto_refresh_classes)
 
         self.make_schedule_card(
             self.cards,
@@ -856,7 +858,7 @@ class DashboardPage:
         for widget in self.cards.winfo_children():
             widget.destroy()
 
-        today_classes = self.schedule_manager.load_today_classes()
+        today_classes =  self.get_active_today_classes()
 
         self.make_schedule_card(
             self.cards,
@@ -1065,4 +1067,53 @@ class DashboardPage:
                 anchor="w",
                 padx=10,
                 pady=(0,8)
+            )
+
+    def get_active_today_classes(self):
+
+        classes = self.schedule_manager.load_today_classes()
+
+        now = datetime.now()
+
+        active_classes = []
+
+        for item in classes:
+
+            end_time = item.get("end_time", "").strip()
+
+            if not end_time:
+                active_classes.append(item)
+                continue
+
+            try:
+
+                end_datetime = datetime.strptime(
+                    end_time,
+                    "%I:%M %p"
+                ).replace(
+                    year=now.year,
+                    month=now.month,
+                    day=now.day
+                )
+
+                if end_datetime > now:
+                    active_classes.append(item)
+
+            except ValueError:
+
+                # Keep the class visible if the time
+                # cannot be interpreted safely.
+                active_classes.append(item)
+
+        return active_classes
+
+    def auto_refresh_classes(self):
+
+        if self.frame.winfo_exists():
+
+            self.refresh_dashboard()
+
+            self.frame.after(
+                30000,
+                self.auto_refresh_classes
             )
